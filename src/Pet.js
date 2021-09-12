@@ -1,5 +1,6 @@
 // Written using JSX
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Pet = ({ name, animal, breed, images, location, id }) => {
   let hero = "http://pets-images.dev-apis.com/pets/none.jpg"; // default image
@@ -9,7 +10,9 @@ const Pet = ({ name, animal, breed, images, location, id }) => {
   return (
     // agr app JSX me kahi bhi kuch JS expression use karna chah rahe ho to apko usko {} curly braces me enclose karna padega.
 
-    <a href={`/details/${id}`} className="pet">
+    // Maine React Router use karna start kar diya he to mai anchor tags ki jagah Link tag ko use karunga.
+    // Bcz anchor tag ek new page pe le jaega yani wo reload karega page ko ie React ko but this isnt req. so we use Link tag jo ki mere Navigation ko capture karlega aur result provide karega acc. to the Routes WITHOUT reloading. 
+    <Link to={`/details/${id}`} className="pet">
       <div className="image-container">
         <img src={hero} alt={name} />
       </div>
@@ -17,7 +20,7 @@ const Pet = ({ name, animal, breed, images, location, id }) => {
         <h1>{name}</h1>
         <h2>{`${animal} - ${breed} - ${location}`}</h2>
       </div>
-    </a>
+    </Link>
   );
 };
 
