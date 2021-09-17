@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Results from "./Results";
 import useBreedList from "./useBreedList";
+import ThemeContext from "./ThemeContext";
 
 const ANIMALS = ["cat", "dog", "bird", "hamster"];
 
@@ -11,6 +12,8 @@ const SearchParams = () => {
   const [pets, setPets] = useState([]);
 
   const [breeds, status] = useBreedList(animal);
+
+  const [theme, setTheme] = useContext(ThemeContext); // Now I have access to theme context, I have just pulled it out of ThemeContext using the hook useContext(), "theme" mai basically wo color wali string aa jaegi.
 
   useEffect(() => {
     requestPets();
@@ -78,7 +81,24 @@ const SearchParams = () => {
           </select>
         </label>
 
-        <button type="submit">Submit</button>
+        <label htmlFor="theme">
+          Theme
+          <select
+            id="theme"
+            value={theme}
+            onChange={(event) => setTheme(event.target.value)}
+            onBlur={(event) => setTheme(event.target.value)}
+          >
+            <option value="black">Black</option>
+            <option value="grey">Grey</option>
+            <option value="mediumorchid">Medium Orchid</option>
+          </select>
+        </label>
+
+        <button type="submit" style={{ backgroundColor: theme }}>
+          {/* style me bahar wala {} is for a JS expression and andar wala is for style object that we provide to style ppt. */}
+          Submit
+        </button>
       </form>
 
       <Results pets={pets} />
