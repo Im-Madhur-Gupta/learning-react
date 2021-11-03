@@ -1,0 +1,3 @@
+yani sare low level kaam khud karna ie element banana, uske andar text dalna, class name dalna, actions provide karna etc.
+
+Agr React, Angular etc ka use ni kare sirf JS use kare to bhi kaam to ho hi jaega, par phir har cheez karne ke liye mujhe alag alag lines likni padegi, this style of programming is called Imperative Programming.

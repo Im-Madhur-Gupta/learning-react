@@ -1,0 +1,36 @@
+1. let and const ES6 me aye the usse pehle sirf var tha, highly recommended to use let and const instead of var.
+
+2. Arrow function me "this" keyword is taken from the place where the arrow function is defined/written, whereas in normal function "this" keyword comes from the place where I have called this function from.
+
+3. Array destructing is used with useState() hook, ye ORDER OF ELEMENTS ke hisab se hoti he,
+[a,b,c] = ["Mad","Bat","Cat"]; order wise elements a, b and c me chale jaenge.
+
+[a,,c] = ["Mad","Bat","Cat"]; --> aesa karne par a="Mad" aur c="Cat" ho jaega.
+
+4. Object destructing is used when props are passed to a component. Yaha destructing hoti he according to PROPERTY NAME.
+{name} = {company:"MAANG",name:"madhur",age:20}
+console.log(company) --> undefined
+console.log(name) --> madhur
+console.log(age) --> undefined
+
+5. IMPORTANT
+** In JS, primitive type ko primitive type se assign karne pe VALUE copy hoti he,
+a=2
+b=a --> b will now hold value 2 at some different memory location than a
+
+refernece type (Object, arrays) ko reference type se assign karne pe REFERENCE copy hoti he,
+arr1 = [1,2,3,4]
+arr2 = arr1
+Ab arr1 aur arr2 same memory location ko point kar rahe he.
+
+** In PYTHON
+object se assign karte he doosre object ko to REFERENCE copy hota he, kyoki py ka refernce type object he.
+number, string, list etc ke liye VALUE copy hoti he kyoki ye python ke primitives he.
+
+** In JAVA
+objects (arrays, strings, baki objects) etc se assign karte he doosre object ko to REFERENCE copy hota he, kyoki java ke refernce type objects (arrays, strings, baki objects) he.
+primitives (int, boolean, byte, float etc) ke liye VALUE copy hoti he kyoki ye python ke primitives he.
+
+OVERALL --> Primitives = Primitives pe VALUE copy hogi
+            Refernce Type = Refernce Type pe REFERENCE copy hogi
+Just need to see kis language ke liya konsa type primitive he aur konsa refernce.
