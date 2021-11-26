@@ -1,0 +1,67 @@
+* To initialize a frontend only (no server-side processing) React app -
+npx create-react-app {react_app_name}
+
+* react project me jo file sabse pehle execute hoti he wo index.js he.
+
+* we cannot import css files into vanilla js.
+
+* Typically, using react we can only make single page applications, ie we generate a single HTML file.
+
+* React components ke name should start with capital letters, tabhi React pakad payega ki its a React component, small me noraml html components hote he.
+
+* JSX - JavaScript XML
+
+* React Components are basically custom HTML elements
+
+* Follow the style of writing 1 component per file.
+
+* App component is called Root Component as all the other components will be nested inside of it.
+
+* A component in React is either a JS function or JS class.
+
+* The JSX of all components should be enclosed in a parent block level element (generally we use div). This is bcz all JSX code gets converted to React.createElement() calls, which we will return and we can only return 1 thing / 1 React.createElement() at a time.
+
+* Mujhe apne react components me css files ko import karna padta he taki wo rendering ke time implement ho jae.
+
+* Revision - JavaScript Date objects represent a single moment in time in a platform-independent format. Date objects contain a Number that represents milliseconds since 1 January 1970 UTC.
+
+* create date object - let date = new Date()
+* create date string - let dateStr = Date()
+
+* JSX ke andar JS use karna he to {} use karte he. Par iske andar mai block statememts (like if-else) use ni kar sakta, if else ki jagah ternary use kar sakte he.
+
+
+
+* IMPORTANT - Wrapper Components like a Card jiske andar mai dusre React comps dalunga, they don't work out of the box. Agr wrapper comp ke andar sirf html tags hote to chal jata. 
+* To agr kisi Wrapper React Component ke opening tag and closing tag ke beech koi React comp dalna he to will have to use {props.children} between the wrapper's root <div>.
+
+* children is a prop that is passed implicitly, it basically contains all the children contained by the wrapper from the place its being displayed.
+
+* similarly, className is a prop that is implicitly passed, it contains all the class names suplied from the place where the component is being displayed. So we can attach all the class names supplied using className = {props.className}
+
+
+* All components ultimately end up as our good-old html elements.
+
+* JSX gets broken down to a bunch of React.createElement() calls.
+
+* React.createElement(name of the element we have to make, its attributes, what should be inside of it)
+* The name would be in quotes for a std html element, but as it is for a React Component.
+
+* In React I make a component tree which gets inserted into a single root node in the DOM. Is single root node me kai sare components nested hote he.
+
+* Props are basically custom HTML attributes.
+
+* In React we can tranfer data from -
+1. Parent to Child using props.
+2. Child to parent using a custom event handler (basics\ExpenseForm.js line 63).
+** Direct Child to Child data transfer is not possible.
+
+* onChange event listner works for all types of input fields text, date, number, dropdown etc.
+
+* To add a default value to select tag use its "defaultValue" or "value" attribute and then give it the default value. (basics\ExpensesFilter.js line 11).
+
+* Types of Components -
+1. Stateless / Presentational / Dumb Component - Aisa component jisme state management na ho raha ho / state hook use ni kiya ho. just there to output some data.
+2. Stateful / Smart Component - Aisa component jisme state management ho raha ho / state hook use kiya ho.
+
+* A general thing is that stateless components are more in number than stateful component.

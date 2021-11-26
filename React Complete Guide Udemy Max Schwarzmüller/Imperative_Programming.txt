@@ -1,3 +1,5 @@
 yani sare low level kaam khud karna ie element banana, uske andar text dalna, class name dalna, actions provide karna etc.
 
-Agr React, Angular etc ka use ni kare sirf JS use kare to bhi kaam to ho hi jaega, par phir har cheez karne ke liye mujhe alag alag lines likni padegi, this style of programming is called Imperative Programming.
+Agr React, Angular etc ka use ni kare sirf JS use kare to bhi kaam to ho hi jaega, par phir har cheez karne ke liye mujhe alag alag lines likni padegi, this style of programming is called "Imperative Programming".
+
+Aur agr React etc ke sath likhenge to thats called "Declarative Programming". Isme mai basically React ko desiered/final state bata deta hu aur fir React will figure out how to do that.
