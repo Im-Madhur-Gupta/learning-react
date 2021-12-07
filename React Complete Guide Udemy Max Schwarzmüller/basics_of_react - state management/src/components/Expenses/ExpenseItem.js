@@ -7,10 +7,10 @@ import "./ExpenseItem.css";
 
 const ExpenseItem = (props) => {
   // const { expenseDate, expensePrice } = props;
-  const {expenseTitle, expenseDate, expensePrice } = props;
+  const { expenseTitle, expenseDate, expensePrice } = props;
 
   // The hooks MUST be called inside some COMPONENT FUNCTION.
-  
+
   // Following me maine array destructing ka use kiya he, jisme order of elements matter karta he.
   // [the variable, a state updating function corresponding to the variable]
   // ye state updating function, variable ki value to change karega hi uske sath sath sirf JIS component instance me define kiya he (here, ExpenseItem) will be re-rendered by React.
@@ -29,20 +29,22 @@ const ExpenseItem = (props) => {
   // };
 
   return (
-    <Card className="expense-item">
-      <ExpenseDate expenseDate={expenseDate} />
-      <div className="expense-item__description">
-        <h2>{expenseTitle}</h2>
-        <p className="expense-item__price">${expensePrice}</p>
-      </div>
-      {/* Adding event listener to the below button */}
-      {/* <button
+    <li>
+      <Card className="expense-item">
+        <ExpenseDate expenseDate={expenseDate} />
+        <div className="expense-item__description">
+          <h2>{expenseTitle}</h2>
+          <p className="expense-item__price">${expensePrice}</p>
+        </div>
+        {/* Adding event listener to the below button */}
+        {/* <button
         // IMPORTANT - The function shoudn't be called, it should just be pointed to the function. Agr call daldunga to jaise hi JSX execute ho rahi hogi tabhi function execute ho jaega naki click hone par.
         onClick={changeTitleHandler}
-      >
+        >
         Change Title
       </button> */}
-    </Card>
+      </Card>
+    </li>
   );
 };
 

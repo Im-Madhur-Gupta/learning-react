@@ -65,3 +65,11 @@ npx create-react-app {react_app_name}
 2. Stateful / Smart Component - Aisa component jisme state management ho raha ho / state hook use kiya ho.
 
 * A general thing is that stateless components are more in number than stateful component.
+
+* JSX code me agr { [component1, component2, ...] } aesa likh diya to React will render these components present in the array side by side.
+
+* We should always use "key" ppt whenever we are rendering a list of items. (Expenses.js)
+
+* Jab bhi aisa kuch karna ho like ki certain variables ka jab state change hoga tab tab mujhe kuch peice of code re-run karna he to mai useEffect hook use karunga.
+
+* We can store JSX code in variables.

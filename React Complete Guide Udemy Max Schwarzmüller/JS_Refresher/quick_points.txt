@@ -36,3 +36,5 @@ OVERALL --> Primitives = Primitives pe VALUE copy hogi
 Just need to see kis language ke liya konsa type primitive he aur konsa refernce.
 
 Javascript me functions are basically objects.
+
+kisi bhi number ko string me convert karne ke liye simply use the toString() method.

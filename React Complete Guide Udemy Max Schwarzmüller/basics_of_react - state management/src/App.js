@@ -9,7 +9,7 @@ function App() {
       expenseTitle: "Something",
     },
     {
-      expenseDate: new Date(2001, 10, 10),
+      expenseDate: new Date(2020, 10, 10),
       expensePrice: "300",
       expenseTitle: "Something1",
     },
@@ -19,7 +19,7 @@ function App() {
       expenseTitle: "Something",
     },
     {
-      expenseDate: new Date(2001, 10, 10),
+      expenseDate: new Date(2020, 10, 10),
       expensePrice: "300",
       expenseTitle: "Something1",
     },
@@ -33,14 +33,17 @@ function App() {
     // expenses.push(expenseData); // Bina state hook ke add karenge to React ko pata ni chalega ki "kuch values update ho gai he to re-render karna padega".
 
     // Ab mai simply expenses array me state hook laga ke uski value update karunga taki "Expenses" component re-render ho jae with the new value.
-    setExpenses([
-      ...expenses,
-      {
-        expenseDate: expenseDate,
-        expensePrice: expenseAmount,
-        expenseTitle: expenseTitle,
-      },
-    ]);
+    // Lekin kyoki ye previous state pe depend kar raha he to mujhe state change function ke andar prevstate wala arrow function use karna padega taki react mujhe latest snapshot de "expenses" ka.
+    setExpenses((prevState) => {
+      return [
+        {
+          expenseDate: expenseDate,
+          expensePrice: expenseAmount,
+          expenseTitle: expenseTitle,
+        },
+        ...prevState,
+      ];
+    });
     // Choti problem upar ye hogai ki jo object ExpenseForm -> NewExpense -> App me aya he usme "expensePrice" ppt name ki jagah "expenseAmount" ppt name he. To wo mujhe thik karna pada.
 
     console.log("Data added succesfully.");
