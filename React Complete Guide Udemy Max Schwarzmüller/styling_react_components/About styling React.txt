@@ -1,0 +1,8 @@
+* Agr kisi js/react file me mai css file ko import karta hu to wo css globally apply ho jati he matlab baki js/react files me agr className etc match kar gaya to styles apply ho jaengi.
+
+* In all, directly css files import karne se global css lag jati he modular css ni.
+
+* To achieve modular css functionality (one in which when I style a component ONLY that component gets styled) use css-modules. styled-components is not a good idea.
+
+* CSS-Modules kya karega ki wo given css classes ke hisab se new css classes generate karega for all the components where the css-module is being used, so that the css class names will be unique for each and every component.
+Name of the new css class would be - componentname_oldcssclassname__arandomhashvalue
