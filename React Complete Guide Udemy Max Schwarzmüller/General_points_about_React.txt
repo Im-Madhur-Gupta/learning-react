@@ -73,3 +73,40 @@ npx create-react-app {react_app_name}
 * Jab bhi aisa kuch karna ho like ki certain variables ka jab state change hoga tab tab mujhe kuch peice of code re-run karna he to mai useEffect hook use karunga.
 
 * We can store JSX code in variables.
+
+* JSX ki limitation ye he ki usse hamesha EK parent element (ya EK expression) chahiye hota he return me (This is NOT a req. of the DOM). cuz it gets translated into React.createElement calls. To overcome this we can -
+1. wrap whatever we want to return in a div (or any element/React Component). React component me simply mujhe props.children return karwana he. This is fine but it creates uneccessary divs/elements.
+2. return an array of JSX components/elements.
+3. USE REACT FRAGMENTS - Ye simply props.children ko return kar deta he. JSX wali condition fullfill and NO uneccessary elements are now being rendered.
+<React.Fragment> </React.Fragment>
+OR
+<> </> (Best)
+
+* Modals, side drawers, any overlay shouldn't be nested with other elements/components as they are to be rendered above them not with them. nest karke proper styling ke sath aisa lagega ki wo upar aa gaya he baki elements ke but SEMANTICALLY its NOT correct. To overcome this issue we use React Portals. project1 -> ErrorModal.js:32
+
+* useRef() se mai kisi DOM element ka ek reference bana sakta hu.
+const ref_name = useRef(initialvalue)
+ye initial value ref_name.current.value me initially hogi.
+Ab mujhe is ref ko jis bhi DOM element se link karna he usko mai prop dunga ref={ref_name} ka.
+ref_name.current uss DOM element ko store karke rakhta he aur ref_name.current.value uss element ki value.
+ref_name.current mutable hota he matlab mai .current ko dusri value assign kar sakta hu to wo actual element ki value change kardega but re-render NI karega to wo change dikhega ni (jabki state change function se value change karke re-render karwate the)
+
+IMP - To agr apko kisi DOM element ki value read karni he and write karni he but you dont need a re-render after writing then you can use useRef(). Agr re-render bhi chahiye to simply useState() use karo. project1 -> AddUser.js:11
+
+
+* Effect / Side Effect in React yani sending http requests, storing something in browser storage, creating intervals & timers. These events are such that React doesn't care about. in sab cheezo ke liye useEffect() hook use karte he.
+
+* Agr apne page reload kar diya to state hook wale variables wapis default value pe chale jaenge.
+
+* useEffect(function, [dependencies]) -
+ye function component ke 1st render ke BAAD me chalta he fir uske baad jab bhi dependencies change ho tab chalta he.
+
+* Agr useEffect() mai dependencies array diya hi nhi to useEffect ka code hamesha run karega jab component re-render hoga.
+
+* useEffect ki dependencies me mai wo functions and variables ko dal sakta hu jinpe change hone pe mujhe kuch peice of code run karwana he.
+
+* useEffect() ke return me ek function dete he jisse cleanup function kehte he. Login.js:21
+
+* The onBlur event occurs when an object loses focus.
+
+* useReducer wala hook basically complex state management ke liye he, in cases mai useState se code likhna is tough and error-prone. Ex - When we want to update a state based on some other state, there are multiple states involved etc.
