@@ -110,3 +110,4 @@ ye function component ke 1st render ke BAAD me chalta he fir uske baad jab bhi d
 * The onBlur event occurs when an object loses focus.
 
 * useReducer wala hook basically complex state management ke liye he, in cases mai useState se code likhna is tough and error-prone. Ex - When we want to update a state based on some other state, there are multiple states involved etc.
+

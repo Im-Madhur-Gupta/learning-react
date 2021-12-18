@@ -13,6 +13,9 @@ console.log(company) --> undefined
 console.log(name) --> madhur
 console.log(age) --> undefined
 
+-> {name: myName} = {company:"MAANG",name:"madhur",age:20}
+Ab "myName" name ka ek alias ban jaega jisme value "madhur" stored hogi.
+
 5. IMPORTANT
 ** In JS, primitive type ko primitive type se assign karne pe VALUE copy hoti he,
 a=2
