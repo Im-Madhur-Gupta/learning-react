@@ -93,6 +93,8 @@ ref_name.current mutable hota he matlab mai .current ko dusri value assign kar s
 
 IMP - To agr apko kisi DOM element ki value read karni he and write karni he but you dont need a re-render after writing then you can use useRef(). Agr re-render bhi chahiye to simply useState() use karo. project1 -> AddUser.js:11
 
+IMP - useRef can only be used with pre-made HTML elements natively.
+useImperativeHandle() hook se mai React function component pe useRef lagwa sakta hu aur us function component ke jo functions chahu (selected) wo bahar use ho payenge. useReducer_Hook_&_Context Login.js & Input.js.
 
 * Effect / Side Effect in React yani sending http requests, storing something in browser storage, creating intervals & timers. These events are such that React doesn't care about. in sab cheezo ke liye useEffect() hook use karte he.
 
@@ -111,3 +113,16 @@ ye function component ke 1st render ke BAAD me chalta he fir uske baad jab bhi d
 
 * useReducer wala hook basically complex state management ke liye he, in cases mai useState se code likhna is tough and error-prone. Ex - When we want to update a state based on some other state, there are multiple states involved etc.
 
+Context is a component-wide, behind the scenes, STATE-storage that react manages. Using context we do not need to pass props through a chain of components so that it reaches a target component. We can simply access the state from the Context.
+
+* Agr context state ki value change nai ho rahi to Context_Object.Provider is not required, lekin agr change ho rahi he (which it generally would) then its required.
+
+* Jaise props mai state variables aur functions dono de sakte the bilkul waise hi context object mai bhi variables aur functions dono de sakte he.
+
+* Props use karna tab sahi he jab passed component mai directly us prop ka use ho raha ho, but agr lambi chain of components ban rahi he props ke liye to using context is better.
+
+* Context tab use nai karte jab ek multipurpose component banate he like a button.
+
+* React Context is NOT optimized for high frequency changes.
+
+* React hooks can only be used inside of React Components or custom hooks.
