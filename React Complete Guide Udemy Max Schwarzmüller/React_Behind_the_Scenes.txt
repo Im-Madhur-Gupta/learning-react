@@ -1,0 +1,35 @@
+* React jo he usse web, kisi platform ka kuch ni pata usse sirf apne component banane se matlab he, unki state, props, context se matlab he.
+
+* ReactDOM ko web ka pata he and its responsible to render elements on the DOM.
+
+* Jab kisi component ki state change hoti he to React wo component ko RE-EVALUATE karta he (us function component ko re-run karta he) but us pure ke pure component ko DOM pe re-render ni karta. React, changes in DOM after a state change ko dekhne ke liye Virtual DOM ka use karta he jispe wo component ke re-evaluation ka result dalta he, Virtual ko Real se compare karta he aur phir jo bhi changes he unhe ReactDOM ko bata deta he phir sirf utne changes RE-RENDER / RENDER hote he on the Real DOM. This gives React its performance.
+
+* Ab agr parent component re-evaluate hua to uska child component bhi re-evaluate hoga, basically child component ka code bhi re-run karega. This doesnt neccesarily mean that we'll see a DOM re-render.
+
+* Ab ho sakta he ki kuch child components static he yani unka re-evaluation is a waste of resource. To React ko ye batane ke liye ki ek particular component ko sirf tabhi re-run / re-evaluate karna jab uske PROPS CHANGE HUE HO uske liye apn ko us component ke export mai component ko React.memo() me dalna padta he. Ex - export default React.memo(component_name). Lekin ye bhi performance cost pe ata he now React has to store a component's prev prop value and then it has to compare it to the new prop value.
+
+Imp - React.memo() kya karta he ki wo prop values pe === operator laga deta he. To ye primitives ke liye to false === false -> true dega but reference types ke liye true ni dega as [1,2,3] === [1,2,3] -> false, kyoki ye alag memory locations pe he. To agr prop value ek array / function / object he to React.memo() isme change ni dekh payega usko aesa lagega hamesha ki new prop aya he to re-evaluate karna padega. Wahi agr props primitives he to change dekh lega React.memo().
+
+A fix for refernce types being re-evaluated always -> useCallback() hook
+jo bhi function maine pass karna he as props (which dont change value wise) unko simply useCallback() mai cover kardo. (useCallback() is only for functions)
+Ex - const function1 = useCallback(()=>{})
+React ab useCallback() ke andar ke function ko (including all the variable values used inside of it) kahi safely store karke rakh lega fir jab parent re-evaluate ho raha hoga tab 
+new_func = purane_stored_func;
+Yani same memory location pe new wale ko point karwa dega to === true return kar dega. To child ki prop value change ni hogi => child ka re-evaluation ni hoga.
+useCallback() ka 2nd argument dependencies array hota he, empty array [] chod diya kyoki andar ka code kisi pe depend ni kar raha / andar ka code kabhi change ni ho raha. Agr mai ye chahta hu ki useCallback() ko jo maine ref. var. diya wo apni value kuch particular variables ki value change hone pe re-evaluate kare yani kuch particular variables us ref. var. mai as dependencies he, to in variables ko dependency array mai dalte he.
+
+* Jab tak koi component DOM pe he aur usse attached koi state he to wo state is managed by React but once the component is taken Off of the DOM then the state is lost.
+
+* useEffect() kya karta tha ki jab uska dependencies array ke variables change ho gae honge (state change complete ho gaya hoga) tab kuch peice of code re-run hoga.
+
+* React aisa ni karta ki ek line me ek state update mila to component ko re-run karo fir agli line me agla state update mila to phirse re-run karo. Wo state updates ko BATCH kar deta he taki usse multiple state updates ke corresponding ek hi baar re-run karna pade component ka code.
+
+* Function ko memoize / memorize karne ke liye we use useCallback().
+
+* Data (array, object) ko memoize karne ke liye we use useMemo().
+Syntax of use memo -
+useMemo(()=>{
+    return _______Data we want to memoize_______
+}, [dependencies array -> aise variables jinki value change hone par the stored/memoized data should be re-evaluated.])
+
+* Ye useMemo() aur useCallback() apni bhi memory lete he ofc. to inhe har jagah use ni karte.

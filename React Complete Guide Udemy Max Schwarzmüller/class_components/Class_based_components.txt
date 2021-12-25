@@ -1,0 +1,24 @@
+* You cannot use hooks inside of class based components.
+
+* "props" ppt kisi bhi class based component ko milti when it extends the "Component" class.
+
+* Class based component can be used side by side with functional components.
+
+* IMP - Class based component mai state is always a JS object but functional components mai kuch bhi state ho sakta he. Class comp. mai sari ki sari states are grouped together under a single state object. functional comp. mai alag alag kar sakte he.
+
+* class component mai jab mai this.setState() karta hu tab mujhe updated state key: value pair(s) dene padte he, ye new key:value pairs purane walo ke sath merge kar deta he React, ie overrides the changed ones and keeps the ones which arent present.
+
+* Lifecycle Methods -
+1. ComponentDidMount() -> After component was 1st rendered.
+2. ComponentDidUpdate() -> Called once component was updated (when state got updated).
+3. ComponentWillUnmount() -> Called right before component is removed from DOM.
+
+* IMP - Class Components - Ek baar mai sirf ek hi Context ko refer / listen kar sakte he.
+
+* ErrorBoundaries build karne ke liye class based componets hi use karne padte he.
+
+* JS mai error handling ke liye try / catch block use karte he. Lekin jo JSX likhte he wo return ke andar hota he aur waha try/catch block use ni kar sakte.
+
+* To JSX mai error handling ke liye we use "Error Boundaries", and this can ONLY be implemented using class based components (using a lifecycle method called "componentDidCatch()") and NOT using function based components.
+
+* Small Note - class based methods mai agr constructor(){} use kiya he to isme pehli line mai super() ko call karna padta he.
