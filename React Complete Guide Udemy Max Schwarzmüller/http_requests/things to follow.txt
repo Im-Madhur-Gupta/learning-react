@@ -1,0 +1,24 @@
+* Secure your API keys -> whitelist only a set of IPs, through which API key can be used.
+
+* Don't store any sensitive user info in the frontend.
+
+* NOTE - Minification is only a performance enhancement, it doesn't secure our frontend in any way.
+
+* Note - REST API ki problem ye he ki usme sara data ek sath aa jata he, meaning we fetch more than what we need. An advantage of REST API is that it's pretty clear in the sense that we GET from 1 endpoint, POST from another etc.
+
+* GraphQL API kafi specific data provide karti he.
+
+* Agr per page of app zyada data ni chahiye sirf specific data chahiye and bandwidth needs to be conserved then GraphQL API are better. And if per page bohot sara data chahiye to REST API are better.
+
+* Note - 
+-> Axios is a npm package through which we can send http requests.
+-> Fetch API is built into browser (so, it doesn't require a seperate package), using this we can send http requests.
+
+// Status Codes
+* 2xx -> sucess
+* 4xx, 5xx -> failure
+
+* 200 -> success
+* 400 -> bad request
+* 403 -> forbidden
+* 404 -> not found
