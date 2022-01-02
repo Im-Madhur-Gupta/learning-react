@@ -1,0 +1,6 @@
+* Form validation should be done in Backend as well as frontend, not just in frontend beacuse a user can inspect and change the frontend code.
+
+* Kisi form ka validation 3 jagah pe kar sakte he -
+1. on form submittion (onSubmit)
+2. when input fields loose focus (onBlur)
+3. on everykey stroke (onChange)

@@ -1,0 +1,1 @@
+* IMPORTANT -> Jab bhi kisi function ke andar apko kisi custom ya pre-defined ASYNCHRONOUS function ko call karna rehta he to (async, await) ya .then() ka use karte he. Ye tab jab uss async req. ka result chahiye tab tak agge ni badh sakte.
