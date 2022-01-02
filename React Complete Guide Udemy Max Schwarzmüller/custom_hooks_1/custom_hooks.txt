@@ -1,0 +1,5 @@
+* customHook ka name should start with "use".
+
+* Custom Hooks are some stateful logic which we have moved to re-usable functions.
+
+* Agr custom hooks mai kuch states declare ki he to wo states will have a SEPERATE copy for all of the components where the custom hook is being used, the copies of states will be independent.
