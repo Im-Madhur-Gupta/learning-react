@@ -4,37 +4,28 @@ import useInput from "../hooks/use-input";
 const SimpleInput = () => {
   const [
     enteredName,
-    setEnteredName,
     enteredNameIsValid,
-    setEnteredNameIsTouched,
     nameIsValid,
     nameChangeHandler,
     nameBlurHandler,
+    nameReset,
   ] = useInput((name) => {
     return name.trim() !== "";
   });
   const [
     enteredEmail,
-    setEnteredEmail,
     enteredEmailIsValid,
-    setEnteredEmailIsTouched,
     emailIsValid,
     emailChangeHandler,
     emailBlurHandler,
+    emailReset,
   ] = useInput(isEmailValid);
 
   const formIsValid = enteredNameIsValid && enteredEmailIsValid;
   const formSubmitHandler = (event) => {
     event.preventDefault();
-    if (formIsValid) {
-      setEnteredName("");
-      setEnteredEmail("");
-      setEnteredNameIsTouched(false);
-      setEnteredEmailIsTouched(false);
-    } else {
-      setEnteredNameIsTouched(true);
-      setEnteredEmailIsTouched(true);
-    }
+    nameReset();
+    emailReset();
   };
 
   const inputNameClasses = nameIsValid
