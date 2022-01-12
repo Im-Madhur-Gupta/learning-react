@@ -39,7 +39,7 @@ const AvailaleMeals = () => {
 
   const fetchMeals = async () => {
     const res = await fetch(
-      "https://react-http-course-499da-default-rtdb.asia-southeast1.firebasedatabase.app/meals"
+      "https://react-http-course-499da-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json"
     );
 
     if (!res.ok) {

@@ -89,7 +89,7 @@ const ref_name = useRef(initialvalue)
 ye initial value ref_name.current.value me initially hogi.
 Ab mujhe is ref ko jis bhi DOM element se link karna he usko mai prop dunga ref={ref_name} ka.
 ref_name.current uss DOM element ko store karke rakhta he aur ref_name.current.value uss element ki value.
-ref_name.current mutable hota he matlab mai .current ko dusri value assign kar sakta hu to wo actual element ki value change kardega but re-render NI karega to wo change dikhega ni (jabki state change function se value change karke re-render karwate the)
+ref_name.current mutable hota he matlab mai .current ko dusri value assign kar sakta hu to wo actual element ki value change kardega but re-render NI karega (cross-checked) to wo change dikhega ni (jabki state change function se value change karke re-render karwate the)
 
 IMP - To agr apko kisi DOM element ki value read karni he and write karni he but you dont need a re-render after writing then you can use useRef(). Agr re-render bhi chahiye to simply useState() use karo. project1 -> AddUser.js:11
 
