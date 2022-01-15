@@ -1,0 +1,9 @@
+* Redux is a state management system to manage cross-component OR app-wide state.
+
+* React Context aur Redux same work karte he.
+
+* React context performs fine for {low-frequency updating states} but for {high-frequency} ones it's not good, in the 2nd case we should use Redux.
+    App-wide state mai low-freq updates he -> React Context.
+    App-wide state mai high-freq updates he -> Redux.
+
+* Redux is not just limited to React, it can be used in any JS (or other language) projects.
