@@ -1,19 +1,11 @@
-import { createStore } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
+import counterSliceReducer from "./counter-slice";
+import authSliceReducer from "./auth-slice";
 
-const counterReducerFunction = (prevState = { counter: 0 }, action) => {
-  if (action.type === "INCREMENT") {
-    return {
-      counter: prevState.counter + 1,
-    };
-  }
-  if (action.type === "DECREMENT") {
-    return {
-      counter: prevState.counter - 1,
-    };
-  }
-  return prevState;
-};
+const store = configureStore({
+  // IMPORTANT - Combining reducers of various state slices.
+  // useSelector mai state.counterSlice se 1st slice access hogi.
+  reducer: { counterSlice: counterSliceReducer, authSlice: authSliceReducer },
+});
 
-const store = createStore(counterReducerFunction);
-
-export default store; // exporting my redux store so that I can "provide" it to my React app. Go to index.js of React app.
+export default store;

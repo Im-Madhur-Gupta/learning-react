@@ -7,3 +7,12 @@
     App-wide state mai high-freq updates he -> Redux.
 
 * Redux is not just limited to React, it can be used in any JS (or other language) projects.
+
+* class based components mai Redux ka usage - video 237 Maximillian Course.
+
+* Kisi bade application mai agr mai redux ka use kar raha hu to -
+1. action object ke "type" fields mismatch ho sakte he.
+2. State object bhi bada ho jaega bade projects mai.
+3. Aur mujhe ye bhi dhyan mai rakhna he ki reducer function mai mai brand new object return karu prevState ko galti se bhi mutate na karu.
+
+-> In problems ko solve karne ke liye we use redux toolkit.
