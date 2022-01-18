@@ -1,0 +1,9 @@
+* Reducer functions of Redux should be pure, side-effect free and synchronous.
+
+* Side Note - Reducer func of useReducer should also be synchronous.
+
+* So where should the side-effect causing / asynchronous code be put in Redux -
+1. Inside of the component itself, away from redux.
+2. Create your own action creator functions. (The functions that created an action object for us which we later dispatched)
+
+* Just a Note - The id for any peice of data should be should be connected / glued to the data and not to other external factors like array indices etc.
