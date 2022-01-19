@@ -4,6 +4,8 @@
 
 * So where should the side-effect causing / asynchronous code be put in Redux -
 1. Inside of the component itself, away from redux.
-2. Create your own action creator functions. (The functions that created an action object for us which we later dispatched)
+2. Create your own action creator functions. (The functions that created an action object for us which we later dispatched) (store/cart-custom-action.js)
 
-* Just a Note - The id for any peice of data should be should be connected / glued to the data and not to other external factors like array indices etc.
+* Just a Note - The id for any peice of data should be connected / glued to the data and not to other external factors like array indices etc.
+
+* Redux Dev Tools is a wonderful software to debug Redux code.

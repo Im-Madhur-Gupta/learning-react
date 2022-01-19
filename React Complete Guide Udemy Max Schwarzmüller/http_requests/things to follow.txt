@@ -26,3 +26,5 @@
 * useEffect() ka function async ni ho sakta, uske andar mai async func. ko call zaroor kar sakta hu.
 
 * try catch ke andar agr async function call hota he aur wo error throw karta he to catch block usse catch ni kar payega kyoki promise resovle hone ka wait thodi na karega compiler wo to agge bad jaega aur phir jab wo promise return hoga aur manlo fail hogya to to mai catch block etc ke bahar aa chuka honga. To handle this situation either we can await for the promise of the async function to return OR we can simply handle the promise and error using func_call().catch();
+
+* PUT request se backend pai data overwrite hota he, POST mai sirf add hota he overwrite ni.
