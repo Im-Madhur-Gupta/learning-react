@@ -6,3 +6,5 @@
 
 * CSS-Modules kya karega ki wo given css classes ke hisab se new css classes generate karega for all the components where the css-module is being used, so that the css class names will be unique for each and every component.
 Name of the new css class would be - componentname_oldcssclassname__arandomhashvalue
+
+* Agr NavLink jo clicked / opened / active he usse highlight karna he to NavLink component ke activeClassName prop mai required css classes dedo.
