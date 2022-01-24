@@ -9,6 +9,10 @@ Manlo maine "/welcome" ki Route banai App.js mai aur usme Welcome component dikh
 Phir welcome component ke andar ek aur Route banai "/welcome/new-user" aur uske andar ek special message de diya. 
 To jab request sirf "/welcome" ki ayegi to special message ni dikhega (kyoki nested route ka URL match ni hua) but agr request "/welcome/new-user" ki ayegi to special message dikhega.
 
+* NavLink over Link because -
+NavLink pai styling kar sakte he Link pe ni.
+Navlink jo clicked/active he usse special css classes deke highlight karwa sakte he using the activeClassName prop.
+
 Note - Router ke andar ek aur Router ni ho sakta.
 
 * Route component mai "path" prop dete.
@@ -18,3 +22,6 @@ Note - Router ke andar ek aur Router ni ho sakta.
 * "path" aur "to" ke andar ka url "/" se chalu hona chahiye.
 
 * Jis bhi URL pe user request marta he usko starting se match karaya jata he with the paths given in the Routes.
+
+* JSX ke andar re-direct karne ke liye Redirect component ka use karte he.
+* Normal JS code mai agr React Router se redirect karwana he to use useNavigate() hook use karte he in v6 and useHistory() in v5.

@@ -1,0 +1,7 @@
+https://betterprogramming.pub/why-dont-react-state-updates-reflect-immediately-9041c4377385
+
+* React state schedule karta he phir when it "feels" like it then it processes it.
+
+* Instant ni hota, state updating function async hota he to async await karke state update process karwa sakte he tab bhi closure ki wajah se updated value ni milti, updated value to re-evaluation ke baad hi milti he.
+
+* An ASSUMPTION which generally works is to update a state in one function call say, then ASSUME that once the call is finished the state update has been procesed, before some other peice of code has to be executed.

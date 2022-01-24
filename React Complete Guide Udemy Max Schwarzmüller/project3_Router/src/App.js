@@ -1,32 +1,31 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
-// import Header
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Layout from "./components/layout/Layout";
 import AddQuote from "./pages/AddQuote";
-import ListQuotes from "./pages/ListQuotes";
+import AllQuotes from "./pages/AllQuotes";
 import QuoteDetail from "./pages/QuoteDetail";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route path="/add-quote">
-          <AddQuote />
-        </Route>
-        <Route exact path="/list-quotes">
-          <ListQuotes />
-        </Route>
-        <Route path="/list-quotes/:quoteId">
-          <QuoteDetail />
-        </Route>
-        {/* Setting the redirect for ANY invalid path - */}
-        <Route path="/">
-          <Redirect to="/list-quotes" />
-        </Route>
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route path="/add-quote">
+            <AddQuote />
+          </Route>
+          <Route exact path="/all-quotes">
+            <AllQuotes />
+          </Route>
+          <Route path="/all-quotes/:quoteId">
+            <QuoteDetail />
+          </Route>
+          {/* Setting the redirect for ANY invalid path - */}
+          {/* "*" is called wildcart character and it matches any path that reaches it. */}
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
+      </Layout>
     </Router>
   );
 }

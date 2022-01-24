@@ -1,7 +1,4 @@
 import { NavLink } from "react-router-dom";
-// NavLink over Link because -
-// NavLink pai styling kar sakte he Link pe ni.
-// Navlink jo clicked/active he usse special css classes deke highlight karwa sakte he using the activeClassName prop.
 
 import styles from "./MainHeader.module.css";
 

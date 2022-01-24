@@ -1,0 +1,25 @@
+* dynamic pages dikhane ke liye mai ":param_name" wala syntax use karta tha path mai, to ye path match karne ke liye ye param dene required he uske bina match ni hoga.
+
+* Ek type ke url params aur hote he they are called query/search params -
+They are optional.
+Syntax - "some_url/?___".
+Inka konsi route match hui usse koi matlab ni he. But jo bhi route match hogi wo ye query param ko access kar paega.
+Used -> Ascending & Descending sorting on the "All Quotes" page. (QuoteList.js)
+
+* useHistory hook se mai URL manipulate karta hu.
+  useLocation hook se mai current URL ko access kar pata hu.
+
+* useRouteMatch hook mai useLocation se zyada data hota he current URL ke bare me. (QuoteDetail.js)
+-> Some values stored in it are - path, url and params.
+-> params store all the passed url paramters (ones that were passed for dynamic pages).
+-> "path" ke andar wo URL hota he jo Routes ke "path" prop mai dala tha.
+Ex. "/all-quotes/:quoteId"
+-> "url" ke andar concrete URL hota he yani wo jismai params ki value dali hui ho acc. to the current page.
+Ex. "/all-quotes/q2"
+-> IMP - search params "path" ya "url" mai NI atte he.
+
+* SUPER IMP - Jab mai history.push() ya history.replace() karunga to current page re-evaluate hoga, aur new URL ke hisab se render hoga.
+
+* URLSearchParams class -
+Its a default JS class.
+An object of this class gives me easy access to the search params in form of a key value pairs. (QuoteList.js)
