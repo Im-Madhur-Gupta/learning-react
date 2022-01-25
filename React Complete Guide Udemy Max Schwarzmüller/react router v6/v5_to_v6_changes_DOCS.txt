@@ -1,0 +1,30 @@
+https://reactrouter.com/docs/en/v6/upgrading/v5
+
+* React Component -> App, ProductDetails, Welcome etc.
+* React JSX Element -> <App />, <ProductDetails /> etc.
+
+* exact is no longer req. v6 always looks for exact matches among routes.
+* v6 ka route matching algorithm is smarter.
+
+* NavLink mai activeClassName is no longer supported, instead NavLink pae jab app className prop doge to wo function lega. (MainHeader.jss) 
+
+* Redirect is replaced by Navigate.
+* Navigate mai "replace" prop dete he to taki page stack pai current page replace ho jae new page se, "replace" ni denge to new page page stack mai push ho jaega.
+
+* Ab jaha par bhi Route dalo ge to waha compulsorily Routes se wrap karni padega.
+
+* Nested Routes mai bhi change he - App.js and Welcome.js
+* Nested Routes ke URLs are now relative to parent route/path.
+
+* Nested Routes mai Link aur NavLink ke url/path ("to" prop ki value) Parent Route ke relative honge. 
+
+* IMP - Nested Routes ke path/url mai leading "/" ni dalna he.
+
+* IMP - Nested Routes new way -> App.js.
+* New way mai Outlet component ka use karte h as a placeholder.
+
+* useHistory is replaced by useNavigate. navigate ka syntax alag he history se. navigate is more powerful than history.
+
+* Side Note - Programmatic Navigation is called Imperative Navigation.
+
+* Current Breaking Change in v6 from v5 - Prompt component is not part of v6 as of now.

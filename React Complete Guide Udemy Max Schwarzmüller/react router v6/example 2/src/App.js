@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 import Welcome from "./pages/Welcome";
 import Products from "./pages/Products";
@@ -11,7 +11,15 @@ function App() {
       <MainHeader />
       <main>
         <Routes>
-          <Route path="/welcome" element={<Welcome />} />
+          <Route path="/" element={<Navigate to="/welcome" />} />
+
+          {/* v6 way of defining nested routes - */}
+          {/* -> * character wildcart he, sabse match ho jaega. */}
+          <Route path="/welcome/*" element={<Welcome />}>
+            {/* Ab jaha par bhi inside of Welcome component mujhe ye Nested Route ka component dalna he waha Outlet component dal dunga. */}
+            <Route path="new-user" element={<p>Welcome, new user!</p>} />
+          </Route>
+
           <Route path="/products" element={<Products />} />
           <Route path="/products/:productId" element={<ProductDetail />} />
         </Routes>
