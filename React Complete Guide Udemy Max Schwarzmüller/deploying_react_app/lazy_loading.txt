@@ -1,0 +1,5 @@
+* Load a peice of code only when its needed. -> Lazy Loading.
+
+* React se SPA banate he to ek user ko wait karna padta he sare ke sare code ka apne browser mai download hone ke jiske hi baad wo website use kar paega.
+-> So we have to make sure that our initial code bundle is as small as possible.
+-> Lazy Loading mai acc. to Routes kar sakta hu, to ek route ka code sirf tabhi download karo jab wo Route active ho gai ho.
