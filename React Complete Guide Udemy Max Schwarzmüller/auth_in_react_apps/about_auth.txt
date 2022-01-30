@@ -1,0 +1,16 @@
+* Web Token wali auth strategy mai backend aur frontend "de-coupled" hote he. Yani wo 2 alag alag server pe aram se reh sakte he.
+
+* Server Side Sessions wali auth strategy mai backend aur frontend "coupled" hote he to unko same server pe rakhna hi sahi he.
+
+
+* Web Tokens ko encrypt/decrypt, validate/generate sirf backend kar pata he. Backend ke pass request ai to wo check karta he token ki validity ko, agr token valid he to access grant kardo warna deny.
+
+* When working with "Authentication Tokens", these tokens are typically created in the "JSON Web Token" Format (JWT).
+
+* These "tokens" are really just long strings which are constructed by an algorithm that encodes data into a string (with help of a private key, only known by the server).
+
+* Auth state is a app wide state.
+
+* Authentication state ko persist karne ke liye mai auth tokens ko localStorage mai store kar leta hu. This would be a problem if my site is vulnerable to Cross Platform Scripting (XSS) attacks.
+
+* Auto-Login-Logout functionality -> auth-context.js and AuthForm.js 
