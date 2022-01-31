@@ -1,0 +1,29 @@
+* Next.js is a Framework that uses React as a library.
+
+* Next.js gives me some imp features (makes life easy) - 
+1. File based routing
+2. Page pre-rendering
+3. Data fetching and adding APIs
+
+* Its a Framework that is used to make Fullstack, Production apps.
+
+* React is just a frontend library.
+
+* Key features of Next js -
+
+1. Built-in Server-Side Rendering -
+* React ek frontend library he to jo bhi processing/execution/rendering hoti he JS code ki wo sara ka sara frontend pai hota he. To frontend pai react code execute hoga uske hisab se display hoga phir manlo kuch request bhejni he api ko to phir wo hogi.
+* To server se jo content aya wo to basically simple sa html code tha "root" id wala.
+* Fir sara execution browser mai hua.
+* So, user ko content load hone ke liye in sab cheezo ke hone ka wait karna padega.
+** This is a problem from SEO perspective as well, kyoki search engine crawlers to sirf wo initial html code hi dekh payenge.
+* Server-side rendering se apn request ane par rendered pages server se front end ko bhej dete he. To frontend pe execution time bach jaega.
+
+
+2. File-based Routing
+* Routing ka built-in support he, "pages" name ke folder ki madad se.
+* Its like simple html pages wali routing jinmai multiple html files hoti thi jo correspond karti thi various routes se.
+
+
+3. Gives me full stack capabilities -
+* Asani se mai backend (nodejs) code likh sakta hu nextjs ki madad se.

@@ -1,0 +1,5 @@
+1. Assets: This folder contains all the media assets, such as images, videos, json files, etc..
+
+2. Components: This folder contains all the Presentational/Stateless Components as discussed above.
+
+3. Containers: The name is pretty self-explanatory. It contains all the Stateful Components as discussed above.
