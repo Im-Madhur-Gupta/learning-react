@@ -1,0 +1,12 @@
+* Jasie filename dynamic kiya tha for a dynamic page, wasie hi folder name bhi dynamic kar sakte he, using the same syntax of [].
+
+* IMP - Nextjs project ka jo ROOT COMPONENT hota he wo _app.js wali file mai hota he. Is root component ko 2 special props milte he by Nextjs -
+1. Component -> contains the parent component (returned JSX) of the page that is to be rendered, so, this will change from page to page.
+2. pageProps -> contains the props that are being passed to the component of a page that is to be rendered, so, this will change from page to page aswell.
+-> So, the COMMON COMPONENTS to all the pages ie Navbar, Footer etc can be inserted in the ROOT Component, and then they will reflect on all the pages.
+
+
+* Programmatic Navigation in Nextjs -
+-> called Imperative Naviagtion.
+-> useRouter hook ki madad se hota he.
+-> jo router object milta he useRouter se usmai .push() method hota he -> pushes a page onto the pages stack, then takes us to that URL.
