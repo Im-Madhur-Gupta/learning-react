@@ -27,3 +27,35 @@
 
 3. Gives me full stack capabilities -
 * Asani se mai backend (nodejs) code likh sakta hu nextjs ki madad se.
+
+
+* Next js ke public folder mai index.html ni milegi kyoki next js supports page pre-rendering. (Detail mai dekhenge isse).
+
+
+* Page based routing in Next js -
+1. Agr request "/" pe ayegi to index.js serve hoga. "/news" pai request ayi to news.js serve hoga.
+(When files are directly inside the pages folder)
+
+2. Nested Routes -
+* Ismai mai pages folder ke andar sub folders banata hu,
+Maine pages ke andar "news" name ka folder banaya to news folder ke andar ki index.js will be rendered at "/news"
+news folder ke andar kuch newsitem.js banai to wo render hogi at "/news/newsitem"
+
+* Jitni chaho utni nesting kar sakte he, folder ke andar folder ... 
+
+3. Dynamic Pages -
+dynamic page banane ke liye following syntax use karenge -
+[identifier_name].js
+phir ye parameter ie. identifier_name use kar sakte he is file ke andar aur us hisab se dynamically render kar sakte he page ko.
+-> Ab ye dynamic value access karne ke liye mai useRouter hook use karunga from "next/router".
+-> useRouter() se jo object milega that contains certain methods and data about the URL, like programatic navigation, data like the variable identifier which we provided in the URL for the dynamic page.
+-> useRouter() se router object jo mila uske pass "query" parameter hota he, jiske pass mere identifier ki value hoti he under a key identifier_name (jo bhi rakhi thi) -
+router.query.identifier_name
+-> useRouter ke barre mai thoda specific - useRouter apne app by default chal jata he lekin tab url ni aya hota he to wo undefined dedeta he .query.____ ko. Phir url jab aa jata he to sahi value deta he. This is the default nehaviour of useRouter hook.
+
+Note - A small prob - .eslintrc.json mai ye hona chahiye -
+{
+    "extends": ["next/babel","next/core-web-vitals"]
+}
+
+* Same wahi cheez React wali ki seedha anchor tag mat use karna usse page refresh ho jata he. Instead use the Link component from "next/link". Ye Link component ko href prop dete he jismai pura URL ana chahiye jaha bhejna chahta hu.
