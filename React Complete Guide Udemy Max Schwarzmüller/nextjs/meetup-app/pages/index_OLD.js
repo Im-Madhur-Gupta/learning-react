@@ -22,6 +22,11 @@ const DUMMY_MEETUPS = [
     }
 ]
 
+// Ye wale index.js code se jo Nextjs pre-rendered (server-side rendering wala) page bheje ga wo 1st render ke baad wala hoga matlab ki wo jismai loadedMeetups empty array he.
+// Is config mai Nextjs won't wait for the useEffect func. to execute (fetch request) after the first render. Wo pehle hi server pe render karke page frontend ko serve kardega.
+
+// Basically, mujhe Nextjs ki built-in page pre-rendering ko batana padega ki "this" particular render/stage ke baad frontend ko page serve karna he.
+
 const HomePage = () => {
     const [loadedMeetups, setLoadedMeetups] = useState([]);
     useEffect(()=>{
