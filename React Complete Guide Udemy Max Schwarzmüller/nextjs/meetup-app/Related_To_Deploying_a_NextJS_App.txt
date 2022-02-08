@@ -1,0 +1,12 @@
+* NextJS app ko deploy karne se pehle mujhe usse proper meta tags (meta data), title dena padega, for better SEO.
+* Ye mai karta hu using the Head component from NextJS.
+* Simply jis bhi page ko meta data dena hota he us component ke return stmt mai pehle mai Head component dalta hu phir baki sara component ka JSX dalta hu, wrapped using react fragment.
+* Is Head component ke andar mai sare <head> tag ke andar anne wale tags de sakta hu.
+
+* "dev" script development build banati he aur usko locally host kar deti he.
+
+* "build" script sirf production build bana deti he.
+
+* "start" script banai hui production build ko locally host kar deti he.
+
+* Silly Thing - Jab apne NextJS app ko deploy kro to agr kahi fetch() ke andar localhost ka api route dal rakha ho to usse change karna padega to the deployed website's URL.

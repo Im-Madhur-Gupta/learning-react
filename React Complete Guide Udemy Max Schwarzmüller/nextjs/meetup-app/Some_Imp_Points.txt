@@ -1,0 +1,61 @@
+* Jasie filename dynamic kiya tha for a dynamic page, wasie hi folder name bhi dynamic kar sakte he, using the same syntax of [].
+
+* IMP - Nextjs project ka jo ROOT COMPONENT hota he wo _app.js wali file mai hota he. Is root component ko 2 special props milte he by Nextjs -
+1. Component -> contains the parent component (returned JSX) of the page that is to be rendered, so, this will change from page to page.
+2. pageProps -> contains the props that are being passed to the component of a page that is to be rendered, so, this will change from page to page aswell.
+-> So, the COMMON COMPONENTS to all the pages ie Navbar, Footer etc can be inserted in the ROOT Component, and then they will reflect on all the pages.
+
+
+* Programmatic Navigation in Nextjs -
+-> called Imperative Naviagtion.
+-> useRouter hook ki madad se hota he.
+-> jo router object milta he useRouter se usmai .push() method hota he -> pushes a page onto the pages stack, then takes us to that URL.
+
+* A good practice is to NOT have css files in the pages folder. Keep it only for route js files.
+
+* There are 2 types of page pre-rendering that we can do using Nextjs -
+1. Static Generation
+2. Server-side rendering
+-> The difference between the 2 is that the code runs at different point of times.
+
+Note - Page pre-rendering is good for SEO and also, it decreases the processing that has to be done on the frontend.
+
+1. Static Generation - Ismai mai pages pre-render / pre-generate karta hu production BUILD banate waqt. To agr ek baar build ban gai to wo pre-rendered pages change ni honge, change karne ke liye build firse karna padega.
+* getStaticProps() mai use kar sakta hu pages folder ke components ke sath (ex. index.js), to get props for that component through static generation, to ye Nextjs ki pre-rendering mai include ho jaenge.
+* getStaticProps() ek async function hota he, to Nextjs is function ko execute karta he before loading/pre-rendering that particular component.
+* Ye getStaticProps() wala code will never execute on the frontend, ye sirf build process ke time chalega, so yaha mai securely kisi DB se connect kar sakta hu.
+* Jin pages me mai getStaticProps() ka use karwata hu wo pages are called SSGs.
+SSG - Static Site Generation. 
+(can be seen which pages are of what type in the output of npm run build)
+* ye getStaticProps() wale mai prob. ye he ki props banne ke baad / build process ke baad ye props change/update ni honge by default.
+* This can be fixed by using "Incremental Static Generation" of props, simply by adding a "revalidate" property to the returned object of getStaticProps().
+-> Is "revalidate" ppt. ko mai no. of secs deta hu jinke baad (bar bar) NextJS is page ko server pe regenerate karega jab uski page ki kuch request ayegi to, aur request ke response mai new regenerated page frontend ko send kar dega. Requests must be there.
+-> So, "revalidate" ppt se mai ye make sure karta hu ki page ke props regular interval pe update hote rahe. (given that us page ki request aye)
+* getStaticProps() ko bhi ek context object milta he as a parameter, which holds a params key, aur iss params key mai js obj hota he jo ki hold karta he page ke dynamic parameters.
+* Jab mai getStaticProps() use kar raha hu in a dynamic page (one with dynamic parameters in URL) to is case mai mujhe getStaticPaths() name ka function bhi export karna padega taki mai URL se dynamic parameter ko access kar saku.
+-> This is bcz getStaticProps() mai data/porps are being generated during build process, to NextJS ko mujhe batana padega ki kon konse URLs (dynamic parameter ki values) ke corresponding mai ye dynamic page pre-render kar wana chahta hu.
+-> URLs ka mujhe explicitly batane ki zaroorat ye bhi he ki build process ke time pe thodi na URL milega, URL to baad mai ayega. Isliye pehle hi URLs batado phir unke corresponding pre-rendering ho jaegi. (ex. [meetupid])
+
+
+2. Server-Side Rendering (SSR)
+* Upar dekha ki props ko mai update kar pa raha tha after a regular interval of time, but sometimes this is not enough, ho sakta he mujhe props HAR REQUEST pai update karne ho. (server pe page regenerate karwake ofc.)
+* Ye achieve karne ke liye mai use karunga getServerSideProps(). Ye func. SERVER pe har incoming request ke liye run karega, sirf build process ke during ni. To props update hote rahenge after every request.
+* getServerSideProps() bhi object return karega jismai "props" field hogi.
+* getServerSideProps() ka code will also never execute on the frontend.
+* getServerSideProps() ko ek context object bhi milta he as a parameter jismai incoming request ka data hota he under the key "req" and response jo bhejenge wo hota he under "res" key.
+
+
+So,
+-> getStaticProps() tab use karte he jab mera data/props ya to change hi na ho ya regular interval pe change ho raha ho. Ye ofc. faster hoga, kyoki page cache ho sakta he yaha.
+-> getServerSideProps() tab use karte he jab mujhe har incoming request pe new data provide karna he aur mujhe incoming request ki body, headers bhi chahiye.
+
+
+Support for API Routes in NextJS -
+* NextJS ki madad se mai asani se APIs bana sakta hu jo ki particular routes pe hongi, aur wo noraml APIs ki tarah HTTP requests accept karengi. (REST API basically bana sakta mai asani se in NextJS)
+* Mujhe pages folder ke andar api folder banana padta he, aur is api folder ke andar bhi file based routing hoti he.
+yani -> src/pages/api/xyz.js wali api will be served at "https://localhost:3000/api/xyz" endpoint.
+(port number dekh lena)
+* Obv. ye xyz.js wali file mai React component/code ni hoga, rather wo NodeJS ka kuch code hoga (basically backend code) that makes an API.
+
+** IMP NOTE - fetch() mai hamesha absolute URL dete he naki relative URL, basically pura URL do.
+* Also, fetch() api sirf browsers mai chalti he node mai ni, but NextJS allows me to use fetch() even in server-side code.

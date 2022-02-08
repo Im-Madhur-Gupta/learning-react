@@ -1,34 +1,42 @@
-import { useEffect, useState } from "react";
+import Head from "next/head";
+import { MongoClient } from "mongodb";
+
 import MeetupList from "../components/meetups/MeetupList";
 
-const DUMMY_MEETUPS = [
-    {
-        id: "m1",
-        title: "Meetup 1",
-        image: "http://prod-upp-image-read.ft.com/15da1136-474c-11e3-b4d3-00144feabdc0",
-        address: "address 1",
-    },
-    {
-        id: "m2",
-        title: "Meetup 2",
-        image: "http://prod-upp-image-read.ft.com/15da1136-474c-11e3-b4d3-00144feabdc0",
-        address: "address 2",
-    },
-    {
-        id: "m3",
-        title: "Meetup 3",
-        image: "http://prod-upp-image-read.ft.com/15da1136-474c-11e3-b4d3-00144feabdc0",
-        address: "address 3",
-    }
-]
+const HomePage = (props) => {
+    return (
+        <>
+            <Head>
+                {/* title */}
+                <title>React Meetups</title>
+                {/* meta */}
+                <meta name="description" content="Browse a huge list of React meetups in your area." />
+            </Head>
+            <MeetupList meetups={props.meetups} />
+        </>
+    );
+}
 
-const HomePage = () => {
-    const [loadedMeetups, setLoadedMeetups] = useState([]);
-    useEffect(()=>{
-        // fetch("")
-        setLoadedMeetups(DUMMY_MEETUPS);
-    },[])
-    return <MeetupList meetups={loadedMeetups} />;
+export async function getStaticProps() {
+    const client = await MongoClient.connect("mongodb+srv://madhur:1234@cluster0.1ezvw.mongodb.net/meetups?retryWrites=true&w=majority");
+    const db = client.db();
+    const meetupsCollection = db.collection("meetups");
+    const data = await meetupsCollection.find().toArray();
+    client.close();
+
+    const meetupsData = data.map(meetup => ({
+        id: meetup._id.toString(),
+        title: meetup.title,
+        image: meetup.image,
+        address: meetup.address,
+    }))
+
+    return {
+        props: {
+            meetups: meetupsData
+        },
+        revalidate: 1
+    }
 }
 
 export default HomePage;
