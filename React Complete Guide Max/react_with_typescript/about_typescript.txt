@@ -5,3 +5,5 @@
 * Prev Knowledge - String + Number in JS is a String.
 
 * Browser sirf aur sirf JS chalaega, to Browser mai run hone se pehle mujhe TS ko compile karna padega to JS.
+
+* TS mai simply ":" laga ke types specify kar dete he.
