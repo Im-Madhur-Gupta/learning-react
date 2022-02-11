@@ -1,0 +1,7 @@
+* Typescript is a super set of JS.
+
+* Adds STATIC TYPING to JS. We already know that JS is DYNAMICALLY TYPED.
+
+* Prev Knowledge - String + Number in JS is a String.
+
+* Browser sirf aur sirf JS chalaega, to Browser mai run hone se pehle mujhe TS ko compile karna padega to JS.
