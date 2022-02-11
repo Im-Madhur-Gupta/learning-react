@@ -1,0 +1,11 @@
+// import { render, screen } from '@testing-library/react';
+// import App from './App';
+
+// is test() mai 2 arguements he -
+// 1. description of the test
+// 2. a func. that will execute as a part of the test
+// test('renders learn react link', () => {
+//   render(<App />);
+//   const linkElement = screen.getByText(/learn react/i);
+//   expect(linkElement).toBeInTheDocument();
+// });

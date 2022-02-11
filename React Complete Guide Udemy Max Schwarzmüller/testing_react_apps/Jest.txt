@@ -1,0 +1,5 @@
+* Jest is a JS testing framework.
+
+* To Jest can be used over any JS code, not just React.
+
+* react-hooks-testing-library is used to test Custom React Hooks.
