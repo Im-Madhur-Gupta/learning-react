@@ -1,0 +1,39 @@
+// import React, { useRef } from "react";
+
+// // Making a FUNCTION TYPE in TS -
+// // (arg_name1: type1, arg_name2: type2, ....) => return_type
+
+// const NewToDo: React.FC<{ onAddTodo: (todoText: string) => void }> = (
+//   props
+// ) => {
+//   // using useRef() with TS -
+//   // useRef ek generic hota he jisko mujhe batana padta he ki ye ref kis element mai use hoga like input element, para element, button element.
+//   // aur mujhe default value bhi deni padti he.
+//   const todoTextInputRef = useRef<HTMLInputElement>(null);
+
+//   // form submission se jo event banta he uski type React.FormEvent hoti he.
+//   // similarly mouseClick ke liye agr onClick() lagaya he to ye event React.MouseEvent type ka hoga.
+//   const formSubmitHandler = (event: React.FormEvent) => {
+//     event.preventDefault();
+
+//     // const enteredInput:string = todoTextInputRef.current?.value;
+//     // "?" - matlab ki value can be null to agr null he to null store karwado else value store karwa do.
+//     const enteredInput: string = todoTextInputRef.current!.value;
+//     // "!" - matlab ki I am certain that the value wont be null so give me that not null value.
+
+//     if (enteredInput.trim().length === 0) return;
+
+//     // If the input is valid -
+//     props.onAddTodo(enteredInput.trim());
+//   };
+//   return (
+//     <form onSubmit={formSubmitHandler}>
+//       <h2>Enter a ToDo</h2>
+//       <label htmlFor="todoText">ToDo Text</label>
+//       <input type="text" name="todoText" id="todoText" ref={todoTextInputRef} />
+//       <button type="submit">Add a ToDo</button>
+//     </form>
+//   );
+// };
+
+// export default NewToDo;

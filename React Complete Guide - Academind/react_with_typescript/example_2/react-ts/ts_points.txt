@@ -1,0 +1,2 @@
+* react aur react-dom are made for vanilla js not for ts
+* To ts wale react code ke liye mujhe autocompletion etc features mile uske liye hame 2 extra packges chahiye hote he which act as a bridge between ts react code and js react code.

@@ -1,0 +1,35 @@
+// import ToDoList from "./components/ToDoList";
+// import ToDo from "./models/todo";
+// import NewToDo from "./components/NewToDo";
+// import { useState } from "react";
+
+// function App() {
+//   const intitialTodoArr = [
+//     new ToDo("Learn TypeScript"),
+//     new ToDo("Learn NodeJS"),
+//   ];
+
+//   // using useState with TS -
+//   // useState bhi generic hota he jiska generic type basically wo type hota he jo mai
+//   // apni state mai store karwana chahta hu.
+//   const [todoArr, setTodoArr] = useState<ToDo[]>(intitialTodoArr);
+
+//   const addTodoHandler = (todoText: string): void => {
+//     const todoObj = new ToDo(todoText);
+//     setTodoArr((prevState) => [todoObj, ...prevState]);
+//   };
+//   const removeTodoHandler = (todoText: string): void => {
+//     setTodoArr((prevState) => {
+//       const newTodoArr = prevState.filter((todo) => todo.todoText !== todoText);
+//       return newTodoArr;
+//     });
+//   };
+//   return (
+//     <div className="App">
+//       <NewToDo onAddTodo={addTodoHandler} />
+//       <ToDoList items={todoArr} onRemoveTodo={removeTodoHandler}/>
+//     </div>
+//   );
+// }
+
+// export default App;

@@ -1,0 +1,29 @@
+import React from "react";
+import ToDo from "../models/todo";
+import ToDoItem from "./ToDoItem";
+
+// Decalaring a React Functional Component in TypeScript
+// We give a react func. component the type React.FC, itna karne se children, className wali ppts milne lagti he through props.
+// Further passed props bhi use karne ke liye -> React.FC<{name1:type1, name2:type2, ....}>
+// Basically, React.FC<T> aisa kuch karke ek generic type leta he, to mai usko concrete type acc. to passed props de deta hu.
+const ToDoList: React.FC<{
+  items: ToDo[];
+  onRemoveTodo: (todoText: string) => void;
+}> = (props) => {
+  return (
+    <ul>
+      {props.items.map((item) => (
+        <ToDoItem
+          key={item.todoText}
+          todoText={item.todoText}
+          onRemoveTodo={props.onRemoveTodo}
+        />
+      ))}
+    </ul>
+  );
+};
+
+// IMP - Agr koi prop optional he to uske liye "?" use karte he aise -
+// React.FC<{items?:string[]}>
+
+export default ToDoList;
